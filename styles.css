@@ -1,0 +1,18 @@
+#timecard-summary li {
+  background-color: #ecf0f1;
+}
+#timecard {
+  margin-bottom: 0;
+}
+#timecard thead {
+  border-bottom: solid #DDDDDD 2px;
+}
+#timecard tr.rowType1 {
+  background-color: #f9f9f9;
+}
+#timecard td:nth-child(1),
+#timecard th:nth-child(1),
+#timecard td:nth-child(3),
+#timecard th:nth-child(3) {
+  border-right: solid #DDDDDD 2px;
+}

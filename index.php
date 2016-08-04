@@ -13,16 +13,7 @@
 
 
 		<script src="scripts.js"></script>
-
-		<style>
-			#timecard tbody tr td:nth-child(1) {
-				border-right: solid #DDDDDD 2px;
-			}
-			#timecard tbody tr td:nth-child(3) {
-				border-right: solid #DDDDDD 2px;
-			}
-
-		</style>
+		<link rel="stylesheet" href="styles.css">
 
 	</head>
 	<body>
