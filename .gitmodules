@@ -1,0 +1,3 @@
+[submodule "adp-etime-api"]
+	path = adp-etime-api
+	url = https://github.com/therealgitcub/adp-etime-api
