@@ -31,7 +31,7 @@
 						</button>
 						<br />&nbsp;
 					</div>
-					<ul class="list-group">
+					<ul class="list-group" id="timecard-summary">
 						<li id="data-payperiod" class="list-group-item">
 							<i class="fa fa-fw fa-calendar"></i>
 							<span class="data">...</span>
@@ -46,7 +46,7 @@
 					<br />
 					<div class="well well-sm">
 						<div class="table-responsive">
-							<table id="timecard" class="table table-striped">
+							<table id="timecard" class="table">
 								<thead>
 									<tr>
 										<th>Date</th>
