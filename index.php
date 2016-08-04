@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Kobi's ADP Clocker</title>
+		<title>Simple eTime for ADP</title>
 
 		<script src="https://use.fontawesome.com/a7291476b9.js"></script>
 
