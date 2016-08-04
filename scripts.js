@@ -1,3 +1,51 @@
+function loadTimeCard() {
+	$.ajax({
+		url: 'adp-etime-api/adp.php',
+		method: 'GET',
+		data: {
+			method: 'view-timecard'
+		},
+		success: function(data) {
+
+			$("#data-payperiod .data").text(data.period);
+			$("#data-totalhours .data").text(data.total.replace(":", " hours and ") + " minutes");
+
+			$("#timecard tbody").empty();
+			
+			var rowType = 1;
+			
+			$.each(data.shifts, function(i, day) {
+				var dayInserted = false;
+				$.each(day.shifts, function(j, shift) {
+					var row = $("<tr class='rowType"+ rowType +"'></tr>");
+					if (!dayInserted) {
+						row.append("<td><strong>" + i + "</strong></td>");
+						dayInserted = true;
+					}
+					else {
+						row.append("<td></td>");
+					}
+					row.append("<td>" + shift.timeIn + "</td>");
+					row.append("<td>" + shift.timeOut + "</td>");
+					row.append("<td>" + shift.shiftTotal + "</td>");
+					row.append("<td></td>");
+					$("#timecard tbody").append(row);
+				});
+				
+				var timeLabel = $("<span class='label label-success'></span>")
+					.append("<i class='fa fa-clock-o'></i>&nbsp;")
+					.append(day.dayTotal);
+				
+				$("#timecard tbody tr:last-of-type td:last-of-type")
+					.html(timeLabel);
+					
+				rowType = (rowType === 1 ? 2 : 1);
+				
+			});
+		}
+	});
+}
+
 function checkClocked() {
 	$.ajax({
 		url: '/devl/markt06/sandbox/adp-etime-api/adp.php',
@@ -8,7 +56,7 @@ function checkClocked() {
 		success: function(data) {
 			loadTimeCard();
 
-			if (data.status == 'FAILED') {
+			if (data.status === 'FAILED') {
 				$("h1 span").text("Error Checking status");
 				if (data.message) {
 					$("h1 small").text(data.message);
@@ -49,40 +97,6 @@ function checkClocked() {
 	});
 }
 
-function loadTimeCard() {
-	$.ajax({
-		url: '/devl/markt06/sandbox/adp-etime-api/adp.php',
-		method: 'GET',
-		data: {
-			method: 'view-timecard'
-		},
-		success: function(data) {
-
-			$("#data-payperiod .data").text(data.period);
-			$("#data-totalhours .data").text(data.total);
-
-			$("#timecard tbody").empty();
-			$.each(data.shifts, function(i, day) {
-				var dayInserted = false;
-				$.each(day.shifts, function(j, shift) {
-					var row = $("<tr></tr>");
-					if (!dayInserted) {
-						row.append("<td><strong>" + i + "</strong></td>");
-						dayInserted = true;
-					}
-					else {
-						row.append("<td></td>");
-					}
-					row.append("<td>" + shift.timeIn + "</td>");
-					row.append("<td>" + shift.timeOut + "</td>");
-					row.append("<td>" + shift.shiftTotal + "</td>");
-					row.append("<td>" + day.dayTotal + "</td>");
-					$("#timecard tbody").append(row);
-				})
-			});
-		}
-	})
-}
 
 $(document).ready(function() {
 	checkClocked();
@@ -95,7 +109,7 @@ $(document).ready(function() {
 				method: 'record-stamp'
 			},
 			success: function(data) {
-				if (data.status == 'FAILED') {
+				if (data.status === 'FAILED') {
 					$("#action-button")
 						.addClass("disabled")
 						.removeClass("btn-danger")
