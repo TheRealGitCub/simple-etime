@@ -48,7 +48,7 @@ function loadTimeCard() {
 
 function checkClocked() {
 	$.ajax({
-		url: '/devl/markt06/sandbox/adp-etime-api/adp.php',
+		url: 'adp-etime-api/adp.php',
 		method: 'GET',
 		data: {
 			method: 'clocked-in'
@@ -103,7 +103,7 @@ $(document).ready(function() {
 
 	$("#action-button").click(function(){
 		$.ajax({
-			url: '/devl/markt06/sandbox/adp-etime-api/adp.php',
+			url: 'adp-etime-api/adp.php',
 			method: 'GET',
 			data: {
 				method: 'record-stamp'
