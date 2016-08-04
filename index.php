@@ -7,7 +7,7 @@
 		<script src="https://use.fontawesome.com/a7291476b9.js"></script>
 
 		<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
-		
+
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/flatly/bootstrap.min.css">
 
 		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
@@ -19,9 +19,9 @@
 
 	</head>
 	<body>
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
-				<div class="col-sm-4">
+				<div class="col-sm-4 col-lg-offset-1 col-lg-3">
 					<br />
 					<div class="well well-sm text-center">
 						<h1><span>Loading...</span><small style="display:block;"></small></h1>
@@ -42,7 +42,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="col-sm-8">
+				<div class="hidden-xs col-sm-8 col-lg-7">
 					<br />
 					<div class="well well-sm">
 						<div class="table-responsive">
