@@ -79,7 +79,11 @@ function checkClocked() {
 					.addClass("fa-sign-out");
 			}
 			else {
-				$("h1").text("Clocked Out");
+				$("h1 span").text("Clocked Out");
+				
+				$("h1 small")
+					.text("")
+					.hide();
 
 				$("#action-button")
 					.removeClass("disabled")
